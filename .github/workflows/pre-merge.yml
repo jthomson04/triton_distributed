@@ -52,7 +52,7 @@ jobs:
       timeout-minutes: 3
 
   helm-chart-verification:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container:
       image: ghcr.io/triton-inference-server/triton_distributed/helm-tester:0.1.1
       options: --tty
@@ -66,7 +66,7 @@ jobs:
     # Allowlist both variants of the mounted source directory.
     - run: git config --global --add safe.directory /__w/triton_distributed/triton_distributed
     - run: git config --global --add safe.directory /workspace
-    - run: pwsh -c ./deploy/Kubernetes/worker/tests/trtllm/test-chart.ps1 --verbose
+    - run: pwsh /workspace/deploy/Kubernetes/worker/tests/trtllm/test-chart.ps1
       timeout-minutes: 2
       working-directory: /workspace
 
