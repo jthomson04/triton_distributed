@@ -53,19 +53,14 @@ tmp_path_retention_policy = "failed"
 # We ignore model.py explcitly here to avoid mypy errors with duplicate modules
 # pytest overrides the default mypy exclude configuration and so we exclude here as well
 
-addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config", "--mypy", "--ignore-glob=*model.py"]
+addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config",  "--ignore-glob=*model.py"]
 xfail_strict = true
 log_cli_level = "INFO"
 filterwarnings = [
   "error",
 ]
 # NOTE: Can also manually mark tests with @pytest.mark.asyncio
-asyncio_mode = "auto"
-markers = [
-	"pre_merge: marks tests to run before merging",
-        "nightly: marks tests to run nightly",
-	"weekly: marks tests to run weekly"
-]
+
 
 # Linting/formatting
 [tool.ruff]
